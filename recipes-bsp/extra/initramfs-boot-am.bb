@@ -14,8 +14,8 @@ SRC_URI = "file://init \
 SRC_URI_alien5 = "file://init"
 
 do_install() {
-	install -d ${D}/etc/init.d
-	install -m 0755 ${WORKDIR}/hdmi.sh  ${D}/etc/init.d/hdmi.sh
+	install -d ${D}${sysconfdir}/init.d
+	install -m 0755 ${WORKDIR}/hdmi.sh  ${D}${sysconfdir}/init.d/hdmi.sh
 	install -m 0755 ${WORKDIR}/init  ${D}/init
 	install -m 0755 ${WORKDIR}/functions  ${D}/functions
 }
@@ -26,4 +26,4 @@ do_install_alien5() {
 
 inherit allarch
 
-FILES_${PN} += "/init /etc/init.d/hdmi.sh /functions"
+FILES_${PN} += "/init ${sysconfdir}/init.d/hdmi.sh /functions"
