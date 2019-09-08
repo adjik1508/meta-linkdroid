@@ -1,5 +1,6 @@
 BOX_BRAND = "linkdroid"
 
+MTD_BLACK  = "mmcblk0"
 KERNEL_FILE = "kernel.itb"
 ROOTFS_FILE = "rootfs.tar.bz2"
 
