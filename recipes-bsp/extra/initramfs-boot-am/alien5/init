@@ -97,11 +97,8 @@ echo 2 > /proc/irq/231/smp_affinity  # hdmi_aocec
 echo 4 > /proc/irq/63/smp_affinity   # dwc_otg, dwc_otg_hcd:usb1
 echo 8 > /proc/irq/62/smp_affinity   # dwc_otg, dwc_otg_hcd:usb2, dwc_otg_pcd
 
-
 # DEC_CONTROL_FLAG_DISABLE_FAST_POC
 #echo 4 > /sys/module/amvdec_h264/parameters/dec_control
-
-
 
 #Function for parsing command line options with "=" in them
 # get_opt("init=/sbin/init") will return "/sbin/init"
@@ -223,10 +220,6 @@ if [[ -x "/mnt/${init}" ]] ; then
     exec 2>/mnt/dev/console
     exec switch_root -c /dev/console /mnt "${init}"
 fi
-
-
-
-
 
 #This will only be run if the exec above failed
 echo "Failed to switch root, dropping to a shell"

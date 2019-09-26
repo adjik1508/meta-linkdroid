@@ -4,8 +4,6 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 
 COMPATIBLE_MACHINE = "alien5|k1pro|k2pro|k2prov2|k3pro|k1plus|kvim2|c300|c300pro|c400plus|alien4"
 
-PR = "r4"
-
 SRC_URI = "file://init \
 	file://hdmi.sh \
 	file://functions \

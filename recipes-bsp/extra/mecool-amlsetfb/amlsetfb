@@ -11,7 +11,6 @@ HPD_STATE=/sys/class/amhdmitx/amhdmitx0/hpd_state
 DISP_CAP=/sys/class/amhdmitx/amhdmitx0/disp_cap
 DISP_MODE=/sys/class/display/mode
 
-
 bpp=32
 mode=720p60hz
 hdmi=`cat $HPD_STATE`
@@ -55,15 +54,11 @@ case $mode in
     1080*)      fbset -fb /dev/fb0 -g 1920 1080 1920 2160 $bpp; common_display_setup ;;
 esac
 
-
 # Console unblack
 echo 0 > /sys/class/graphics/fb0/blank
 echo 1 > /sys/class/graphics/fb1/blank
 
 pbsplash
-
-#remote.conf for a4 has problems with custom_begin/end !!!
-/usr/bin/remotecfg /etc/amremote/remote.conf
 
 #echo rm default > /sys/class/vfm/map
 ###echo add default decoder ppmgr deinterlace amvideo > /sys/class/vfm/map
@@ -71,7 +66,6 @@ pbsplash
 ###echo 912000 >   /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 ###echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 1488000 >  /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-
 
 #if [ ! -e /etc/.aml ]; then
 #	touch /etc/.aml
@@ -81,4 +75,3 @@ echo 1488000 >  /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 #fi
 
 echo default-on > /sys/class/leds/led-sys/trigger
-

@@ -98,10 +98,8 @@ echo 2 > /proc/irq/231/smp_affinity  # hdmi_aocec
 echo 4 > /proc/irq/63/smp_affinity   # dwc_otg, dwc_otg_hcd:usb1
 echo 8 > /proc/irq/62/smp_affinity   # dwc_otg, dwc_otg_hcd:usb2, dwc_otg_pcd
 
-
 # DEC_CONTROL_FLAG_DISABLE_FAST_POC
 #echo 4 > /sys/module/amvdec_h264/parameters/dec_control
-
 
 #Defaults
 init="/sbin/init.sysvinit"
@@ -186,9 +184,20 @@ echo "ts0" > /sys/class/stb/demux0_source
 echo "ts0" > /sys/class/stb/demux1_source
 echo "ts0" > /sys/class/stb/demux2_source
 
-busybox ln -s /dev/dvb/adapter0/dsc0 /dev/dvb/adapter0/ca0
-busybox ln -s /dev/dvb/adapter0/dsc1 /dev/dvb/adapter0/ca1
-busybox ln -s /dev/dvb/adapter0/dsc2 /dev/dvb/adapter0/ca2
+busybox ln -s /dev/dvb/adapter0/ca0 /dev/dvb0.ca0
+busybox ln -s /dev/dvb/adapter0/ca1 /dev/dvb0.ca1
+busybox ln -s /dev/dvb/adapter0/dsc0 /dev/dvb0.dsc0
+busybox ln -s /dev/dvb/adapter0/dsc1 /dev/dvb0.dsc1
+busybox ln -s /dev/dvb/adapter0/dvr0 /dev/dvb0.dvr0
+busybox ln -s /dev/dvb/adapter0/dvr1 /dev/dvb0.dvr1
+busybox ln -s /dev/dvb/adapter0/dvr2 /dev/dvb0.dvr2
+busybox ln -s /dev/dvb/adapter0/net0 /dev/dvb0.net0
+busybox ln -s /dev/dvb/adapter0/net1 /dev/dvb0.net1
+busybox ln -s /dev/dvb/adapter0/net2 /dev/dvb0.net2
+busybox ln -s /dev/dvb/adapter0/demux0 /dev/dvb0.demux0
+busybox ln -s /dev/dvb/adapter0/demux1 /dev/dvb0.demux1
+busybox ln -s /dev/dvb/adapter0/demux2 /dev/dvb0.demux2
+busybox ln -s /dev/dvb/adapter0/frontend0 /dev/dvb0.frontend0
 busybox ln -s /dev/smc0 /dev/sci0
 echo dmx0 > /sys/class/stb/dsc0_source
 
@@ -210,10 +219,6 @@ if [[ -x "/mnt/${init}" ]] ; then
     exec 2>/mnt/dev/console
     exec switch_root -c /dev/console /mnt "${init}"
 fi
-
-
-
-
 
 #This will only be run if the exec above failed
 echo "Failed to switch root, dropping to a shell"

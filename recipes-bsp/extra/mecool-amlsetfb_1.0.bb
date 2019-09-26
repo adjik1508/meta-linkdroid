@@ -5,8 +5,6 @@ include conf/license/license-gplv2.inc
 
 COMPATIBLE_MACHINE = "k1pro|k2pro|k2prov2|k3pro|k1plus|kvim2|c300|c300pro|c400plus|alien4"
 
-PR = "r7"
-
 inherit pkgconfig update-rc.d
 
 INITSCRIPT_NAME = "amlsetfb"

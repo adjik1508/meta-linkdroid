@@ -22,7 +22,30 @@ DISP_MODE=/sys/class/display/mode
 #exit 0
 #i
 
-echo $mode > $DISP_MODE
+# Enable HDMI output if cable is connected and not already enabled by u-boot
+if [ "$(cat /sys/class/amhdmitx/amhdmitx0/hpd_state)" != "0" ] && [ "$(cat /sys/class/display/mode)" != "$mode" ]; then
+  echo $mode > $DISP_MODE
+fi
+
+# set initial video state
+echo 1 > /sys/class/video/disable_video
+
+# Set colorspace to avoid no HDMI signal with non-4K output modes
+echo 422,8bit > /sys/class/amhdmitx/amhdmitx0/attr
+
+# setup framebuffer
+# Enable framebuffer device
+echo 0 > /sys/class/graphics/fb0/blank
+# Blank fb1 to prevent static noise
+echo 1 > /sys/class/graphics/fb1/blank
+echo 0 > /sys/class/graphics/fb0/free_scale
+echo 0 > /sys/class/graphics/fb1/free_scale
+
+# rendercapture does not like double_write_mode=0x0
+# echo 0x2 > /sys/module/amvdec_h265/parameters/double_write_mode
+
+# DEC_CONTROL_FLAG_DISABLE_FAST_POC
+echo 4 > /sys/module/amvdec_h264/parameters/dec_control
 
 common_display_setup() {
         M="0 0 $(($X - 1)) $(($Y - 1))"
@@ -33,7 +56,8 @@ common_display_setup() {
         echo 1 > /sys/class/graphics/fb0/freescale_mode
         echo $M > /sys/class/graphics/fb0/free_scale_axis
         echo $M > /sys/class/graphics/fb0/window_axis
-
+        echo $X > /sys/class/graphics/fb0/scale_width
+        echo $Y > /sys/class/graphics/fb0/scale_height
         echo 0 > /sys/class/graphics/fb1/free_scale
         echo 1 > /sys/class/graphics/fb1/freescale_mode
 }
@@ -135,14 +159,18 @@ esac
 
 common_display_setup
 
-# Enable framebuffer device
-echo 0 > /sys/class/graphics/fb0/blank
+# Enable video and reset axis
+echo 0 > /sys/class/video/disable_video
+echo "0 0 0 0" > /sys/class/video/axis
 
-# Blank fb1 to prevent static noise
-echo 1 > /sys/class/graphics/fb1/blank
+# CEC TV power on
+echo "10 04" > /sys/class/cec/cmd
+
+for part in /sys/block/*/queue/add_random; do
+  echo 0 > "$part"
+done
 
 echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
-
 
 exit 0
 

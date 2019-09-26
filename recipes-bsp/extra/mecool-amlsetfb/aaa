@@ -2,8 +2,6 @@
 
 bpp=32
 mode=720p
-#mode=1080p
-
 
 for x in $(cat /proc/cmdline); do
     case ${x} in
@@ -31,4 +29,3 @@ case $mode in
     1600x900p60*)   fbset -fb /dev/fb0 -g 1600 900 1600 1800 $bpp ;;
     1680x1050p60*)  fbset -fb /dev/fb0 -g 1680 1050 1680 2100 $bpp ;;
 esac
-
