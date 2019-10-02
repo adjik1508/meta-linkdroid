@@ -24,8 +24,8 @@ SRC_URI = "https://github.com/OpenVisionE2/linux-amlogic-coreelec/archive/amlogi
   file://${DTS} \
 "
 
-SRC_URI[md5sum] = "4dd140cd2f7df68a2c9edee653568dde"
-SRC_URI[sha256sum] = "a06b932e85e1158ff9287929c6bf8708f7a9aec9e8af572ff23cf0efaba54be4"
+SRC_URI[md5sum] = "8ac4213b36d44f356dff16834a2f4b93"
+SRC_URI[sha256sum] = "919efa44b576612056eec138738ef142dad2adb7ee3a248b37b09663c61f65de"
 
 do_configure_prepend(){
     sed -i "s/@DISTRONAME@/${MACHINE}/" "${WORKDIR}/defconfig"
