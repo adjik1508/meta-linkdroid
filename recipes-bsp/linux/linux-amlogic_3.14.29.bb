@@ -20,7 +20,10 @@ DTS = "${@ d.getVar('KERNEL_DEVICETREE').replace('.dtb','.dts') }"
 
 SRC_URI = "https://github.com/OpenVisionE2/linux-amlogic-coreelec/archive/amlogic-3.14-nougat.tar.gz \
   file://defconfig \
-  file://openvision.patch \
+  file://kernel-add-support-for-gcc5.patch \
+  file://kernel-add-support-for-gcc6.patch \
+  file://kernel-add-support-for-gcc7.patch \
+  file://kernel-add-support-for-gcc9.patch \
   file://${DTS} \
 "
 
