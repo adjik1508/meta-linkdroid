@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-COMPATIBLE_MACHINE = "alien5"
+COMPATIBLE_MACHINE = "^(alien5)$"
 
 DEPENDS = "lzop-native virtual/${TARGET_PREFIX}gcc"
 
@@ -14,8 +14,8 @@ inherit kernel machine_kernel_pr
 LOCALVERSION ?= ""
 SRCDATE = "20181012"
 
-SRC_URI[md5sum] = "fa0029795853d4f5f94b8c405014ef05"
-SRC_URI[sha256sum] = "e7a74a3173f0b274117b25f37ba4c75ff7be2b7687dc2200ca72b0e396688647"
+SRC_URI[md5sum] = "d1ece449534a587487f2589e68e6f01b"
+SRC_URI[sha256sum] = "21b281fc26a15a5397083049e9e0805c8e62c68f733a3aee6ddb45533fe971f6"
 
 SRC_URI += "http://source.mynonpublic.com/linkdroid/linux-${PV}-${SRCDATE}.tar.gz \
     file://defconfig \

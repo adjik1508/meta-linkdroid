@@ -4,7 +4,7 @@ SECTION = "base"
 LICENSE = "proprietary"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-COMPATIBLE_MACHINE = "alien5"
+COMPATIBLE_MACHINE = "^(alien5)$"
 
 require conf/license/license-gplv2.inc
 
