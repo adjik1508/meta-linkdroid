@@ -2,7 +2,6 @@ DESCRIPTION = "Create NIM sockets"
 MAINTAINER = "mnigma"
 SECTION = "base"
 LICENSE = "proprietary"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 COMPATIBLE_MACHINE = "^(alien5)$"
 
