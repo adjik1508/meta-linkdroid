@@ -16,9 +16,9 @@ SRCREV = "a705ebc81b7f91bbd0ef7c634284208342901149"
 
 SRC_URI = "git://git.denx.de/u-boot.git"
 
-S = "${WORKDIR}/git"
-
 SRC_URI += "file://default-gcc.patch"
+
+S = "${WORKDIR}/git"
 
 UBOOT_MACHINE = "odroid-c2_defconfig"
 
@@ -35,4 +35,8 @@ do_install () {
 	install -d ${D}${sbindir}
 	install -m 755 ${S}/tools/env/fw_printenv ${D}${sbindir}/fw_printenv
 	install -m 755 ${S}/tools/env/fw_printenv ${D}${sbindir}/fw_setenv
+	install -d ${D}${sysconfdir}
+	echo "" >> ${D}${sysconfdir}/fw_env.config
 }
+
+FILES_${PN} = "${sysconfdir} ${sbindir}"
