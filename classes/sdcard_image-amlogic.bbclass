@@ -61,7 +61,7 @@ IMAGE_CMD_amlogicsdimg () {
 
 	mcopy -i ${WORKDIR}/boot.img -v ${DEPLOY_DIR_IMAGE}/aml_autoscript ::
 
-	echo "${IMAGE_NAME}-${IMAGEDATESTAMP}" > ${WORKDIR}/image-version-info
+	echo "${IMAGE_NAME}" > ${WORKDIR}/image-version-info
 	mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/image-version-info ::
 
 	dd if=${WORKDIR}/boot.img of=${SDIMG} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
