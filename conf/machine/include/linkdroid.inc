@@ -39,6 +39,7 @@ DVBPROVIDER = "kernel"
 DVBSKYPROVIDER = "kernel"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
+    amlogic-shutdown \
     amlogic-autoscript \
     linkdroid-mali-alien5 \
     linkdroid-gst-amlavsink1 \
