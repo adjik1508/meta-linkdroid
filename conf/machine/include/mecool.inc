@@ -1,3 +1,5 @@
+GST_VERSION = "0.10"
+
 BOX_BRAND = "mecool"
 
 MTD_BLACK  = "mmcblk0"
@@ -42,12 +44,13 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
     amlogic-shutdown \
     amlogic-autoscript \
     linkdroid-mali-alien5 \
-    linkdroid-gst-amlavsink1 \
-    linkdroid-gst-app \
-    linkdroid-libamplayer-alien5 \
-    linkdroid-libamavutils-alien5 \
-    linkdroid-libamadec-alien5 \
-    linkdroid-libamcodec-alien5 \
+    mecool-gst-amlavout \
+    mecool-gst-amlavsink \
+    mecool-gst-app \
+    mecool-libamplayer \
+    mecool-libamavutils \
+    mecool-libamadec \
+    mecool-libamcodec \
     kernel-modules \
     amremote \
     mecool-dvb-modules-e2procfs \
@@ -57,23 +60,34 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
     kernel-module-avl6862 \
     kernel-module-r848a \
     kernel-module-dhd \
-    linkdroid-libavlib-audio-so-alien5 \
+    kernel-modules \
     libmad \
     mecool-amlsetfb \
     mecool-setup \
     firmware-ap6xxx-mecool \
+    gst-fluendo-mpegdemux \
     "
 
 KERNEL_MODULE_AUTOLOAD += "\
+    e2_procfs \
+    sysfillrect \
+    syscopyarea \
+    mceusb \
+    rc-core \
     mali \
+    dhd \
+    aml \
+    aml_fe \
+    avl6862 \
+    r848a \
+    CH341 \
     rfcomm \
     hidp \
+    cfg80211 \
     bluetooth \
     6lowpan-iphc \
     libcrc32c \
-    mceusb \
-    rc-core \
-    cfg80211 \
+    xfs \
 "
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "\
@@ -83,13 +97,13 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "\
     kernel-module-mceusb \
     kernel-module-rc-core \
     kernel-module-CH341 \
+    kernel-module-cfg80211 \
     kernel-module-rfcomm \
     kernel-module-hidp \
     kernel-module-bluetooth \
     kernel-module-6lowpan-iphc \
     kernel-module-libcrc32c \
     kernel-module-xfs \
-    kernel-module-cfg80211 \
     "
 
 PREFERRED_PROVIDER_jpeg = "libjpeg-turbo"
@@ -98,11 +112,11 @@ PREFERRED_PROVIDER_jpeg-native = "libjpeg-turbo-native"
 DVBMEDIASINK_CONFIG = "--with-wmv --with-pcm --with-eac3 --with-h265 --with-dtsdownmix"
 
 EXTRA_OECONF_append_pn-enigma2 = " --with-alsa --with-alsacard=hw:0 --with-alsamixer=Master --with-fbdev=/dev/fb0 --with-lcddev=/dev/null --with-amlogic"
-DEPENDS_append_pn-enigma2 = " libdvbcsa linkdroid-libamcodec-alien5 linkdroid-libamadec-alien5 gstreamer1.0 gstreamer1.0-plugins-base "
+DEPENDS_append_pn-enigma2 = " libdvbcsa mecool-libamcodec mecool-libamadec"
 EXTRA_OECONF_append_pn-tuxtxt-enigma2 = " --with-fbdev=/dev/fb0"
-DEPENDS_append_pn-enigma2-plugin-systemplugins-servicemp3 = " linkdroid-libamcodec-alien5 "
-CC_append_pn-showiframe = " -DHAVE_AMLOGIC -I${STAGING_INCDIR}/amlogic/amcodec -lamcodec -lgstpbutils-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0"
-DEPENDS_append_pn-showiframe = " linkdroid-libamcodec-alien5 gstreamer1.0 gstreamer1.0-libav gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly"
+DEPENDS_append_pn-enigma2-plugin-systemplugins-servicemp3 = " mecool-libamcodec "
+CC_append_pn-showiframe = " -DHAVE_AMLOGIC -I${STAGING_INCDIR}/amlogic/amcodec -lamcodec"
+DEPENDS_append_pn-showiframe = " mecool-libamcodec"
 
 DISTRO_FEATURES_remove = "x11 wayland"
 

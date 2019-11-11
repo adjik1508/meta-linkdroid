@@ -25,8 +25,6 @@ SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.img"
 
 FATPAYLOAD ?= ""
 
-IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
-
 IMAGE_CMD_amlogicsdimg () {
 
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)

@@ -8,8 +8,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 SRCDATE = "20180516"
 
-PV = "0"
-PR = "${SRCDATE}"
+PV = "${SRCDATE}"
 
 inherit lib_package
 

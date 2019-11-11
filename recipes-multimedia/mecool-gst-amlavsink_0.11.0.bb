@@ -6,11 +6,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-COMPATIBLE_MACHINE = "^(alien5)$"
+COMPATIBLE_MACHINE = "^(k1pro|k2pro|k2prov2|k3pro|k1plus|kvim2|c300|c300pro|c400plus|alien4)$"
 
 inherit autotools pkgconfig
 
-DEPENDS = "gstreamer linkdroid-libamcodec-alien5 linkdroid-libamavutils-alien5"
+DEPENDS = "gstreamer mecool-libamcodec mecool-libamavutils"
+RDEPENDS_{PN} = "mecool-libamavutils"
 
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/amlogic-libs/master/gst-aml-plugins-0.11.0.zip \
            file://osd_fix.patch \
@@ -28,3 +29,6 @@ LDFLAGS =+ " -L${STAGING_LIBDIR} -L${STAGING_BASELIBDIR} "
 FILES_${PN} += "${libdir}/* ${libdir}/libcommon.a"
 FILES_${PN}-dbg += "${libdir}/gstreamer-0.10/.debug $"
 FILES_${PN}-dev += "${S}/include/* "
+
+do_package_qa() {
+}

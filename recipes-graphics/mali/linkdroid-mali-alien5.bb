@@ -1,8 +1,10 @@
-SUMMARY = "Mali driver for ${MACHINE}"
+SUMMARY = "Mali Video driver for ${MACHINE}"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://Makefile;md5=d0d2f45bce10dd67cca4a749d12e535e"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 COMPATIBLE_MACHINE = "^(alien5|k1pro|k2pro|k2prov2|k3pro|k1plus|kvim2|c300|c300pro|c400plus|alien4)$"
 
