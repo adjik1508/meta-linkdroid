@@ -1,5 +1,7 @@
 BOX_BRAND = "linkdroid"
 
+require conf/distro/multilib.inc
+
 MTD_BLACK  = "mmcblk0"
 KERNEL_FILE = "kernel.itb"
 ROOTFS_FILE = "rootfs.tar.bz2"
