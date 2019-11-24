@@ -27,6 +27,6 @@ do_compile() {
 }
 
 do_install() {
-	install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/drivers/amlogic/enigma2
-	install -m 0644 ${S}/e2_procfs.ko ${D}${base_libdir}/modules/${KERNEL_VERSION}/drivers/amlogic/enigma2/
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/drivers/amlogic/enigma2
+	install -m 0644 ${S}/e2_procfs.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/drivers/amlogic/enigma2/
 }
