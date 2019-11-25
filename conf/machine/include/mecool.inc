@@ -2,6 +2,8 @@ GST_VERSION = "0.10"
 
 BOX_BRAND = "mecool"
 
+require conf/distro/multilib.inc
+
 MTD_BLACK  = "mmcblk0"
 KERNEL_FILE = "kernel.itb"
 ROOTFS_FILE = "rootfs.tar.bz2"
@@ -35,7 +37,7 @@ UBOOT_LOADADDRESS = "0x01080000"
 
 INITRAMFS_IMAGE = "amlogic-initramfs"
 
-MACHINE_FEATURES = "bluetooth usbhost vfat alsa dvb-c nolcd hdmicec fb emmc nogamma nofhdskin"
+MACHINE_FEATURES = "bluetooth usbhost vfat alsa dvb-c nolcd hdmicec fb emmc nogamma nofhdskin multilib"
 
 DVBPROVIDER = "kernel"
 DVBSKYPROVIDER = "kernel"
