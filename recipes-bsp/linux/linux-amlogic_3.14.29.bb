@@ -3,11 +3,21 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-inherit kernel machine_kernel_pr
-DEPENDS = "xz-native bc-native u-boot-mkimage-native virtual/${TARGET_PREFIX}gcc"
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 COMPATIBLE_MACHINE = "^(k1pro|k2pro|k2prov2|k3pro|k1plus|kvim2|c300|c300pro|c400plus|alien4)$"
+
+inherit kernel machine_kernel_pr
+
+DEPENDS = "xz-native bc-native u-boot-mkimage-native virtual/${TARGET_PREFIX}gcc"
+
+# Avoid issues with Amlogic kernel binary components
+INSANE_SKIP_${PN} += "already-stripped"
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_PACKAGE_DEBUG_STRIP = "1"
+LINUX_VERSION ?= "3.14.29"
+LINUX_VERSION_EXTENSION ?= "amlogic"
+LOCALVERSION ?= ""
 
 DEPENDS_append_aarch64 = " libgcc"
 KERNEL_CC_append_aarch64 = " ${TOOLCHAIN_OPTIONS}"
@@ -20,7 +30,6 @@ DTS = "${@ d.getVar('KERNEL_DEVICETREE').replace('.dtb','.dts') }"
 
 SRC_URI = "https://github.com/OpenVisionE2/linux-amlogic-coreelec/archive/amlogic-3.14-nougat.tar.gz \
   file://defconfig \
-  file://kernel-add-support-for-gcc5.patch \
   file://kernel-add-support-for-gcc6.patch \
   file://kernel-add-support-for-gcc7.patch \
   file://kernel-add-support-for-gcc9.patch \

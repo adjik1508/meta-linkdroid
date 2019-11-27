@@ -45,7 +45,15 @@ DVBSKYPROVIDER = "kernel"
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
     amlogic-shutdown \
     amlogic-autoscript \
-    linkdroid-mali-alien5 \
+    amlogic-mali \
+    amremote \
+    firmware-ap6xxx-mecool \
+    gst-fluendo-mpegdemux \
+    kernel-module-e2-procfs \
+    kernel-modules \
+    libmad \
+    mecool-amlsetfb \
+    mecool-dvb-modules-e2procfs \
     mecool-gst-amlavout \
     mecool-gst-amlavsink \
     mecool-gst-app \
@@ -53,60 +61,21 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
     mecool-libamavutils \
     mecool-libamadec \
     mecool-libamcodec \
-    kernel-modules \
-    amremote \
-    mecool-dvb-modules-e2procfs \
-    kernel-module-e2-procfs \
-    kernel-module-aml \
-    kernel-module-aml-fe \
-    kernel-module-avl6862 \
-    kernel-module-r848a \
-    kernel-module-dhd \
-    kernel-modules \
-    libmad \
-    mecool-amlsetfb \
     mecool-setup \
-    firmware-ap6xxx-mecool \
-    gst-fluendo-mpegdemux \
     "
 
 KERNEL_MODULE_AUTOLOAD += "\
     e2_procfs \
-    sysfillrect \
-    syscopyarea \
-    mceusb \
-    rc-core \
     mali \
     dhd \
     aml \
     aml_fe \
     avl6862 \
     r848a \
+    sysfillrect \
+    syscopyarea \
     CH341 \
-    rfcomm \
-    hidp \
-    cfg80211 \
-    bluetooth \
-    6lowpan-iphc \
-    libcrc32c \
-    xfs \
 "
-
-MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "\
-    kernel-module-cdfs \
-    kernel-module-sysfillrect \
-    kernel-module-syscopyarea \
-    kernel-module-mceusb \
-    kernel-module-rc-core \
-    kernel-module-CH341 \
-    kernel-module-cfg80211 \
-    kernel-module-rfcomm \
-    kernel-module-hidp \
-    kernel-module-bluetooth \
-    kernel-module-6lowpan-iphc \
-    kernel-module-libcrc32c \
-    kernel-module-xfs \
-    "
 
 PREFERRED_PROVIDER_jpeg = "libjpeg-turbo"
 PREFERRED_PROVIDER_jpeg-native = "libjpeg-turbo-native"
