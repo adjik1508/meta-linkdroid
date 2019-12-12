@@ -18,7 +18,7 @@ require conf/machine/include/arm/arch-armv8.inc
 require conf/machine/include/soc-family.inc
 
 IMAGE_CLASSES += "sdcard_image-amlogic"
-SDCARD_ROOTFS ?= "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ext4"
+SDCARD_ROOTFS ?= "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.ext4"
 IMAGE_FSTYPES ?= "amlogicsdimg"
 IMAGE_ROOTFS_SIZE = "476562"
 IMAGE_EXTRA_SPACE = "0"
