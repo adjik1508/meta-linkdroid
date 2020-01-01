@@ -12,7 +12,7 @@ PREFERRED_VERSION_linux-linkdroid = "3.14.29"
 MACHINEKERNEL = "linkdroid"
 
 # Amlogic defaults
-require conf/machine/include/arm/arch-armv8.inc
+require conf/machine/include/arm/arch-armv8a.inc
 require conf/machine/include/soc-family.inc
 
 IMAGE_CLASSES += "sdcard_image-amlogic"

@@ -14,7 +14,7 @@ PREFERRED_VERSION_linux-amlogic = "3.14.29%"
 MACHINEKERNEL = "amlogic"
 
 # Amlogic defaults
-require conf/machine/include/arm/arch-armv8.inc
+require conf/machine/include/arm/arch-armv8a.inc
 require conf/machine/include/soc-family.inc
 
 IMAGE_CLASSES += "sdcard_image-amlogic"
