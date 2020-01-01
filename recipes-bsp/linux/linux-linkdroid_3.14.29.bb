@@ -20,6 +20,9 @@ SRC_URI[sha256sum] = "21b281fc26a15a5397083049e9e0805c8e62c68f733a3aee6ddb45533f
 SRC_URI += "http://source.mynonpublic.com/linkdroid/linux-${PV}-${SRCDATE}.tar.gz \
     file://defconfig \
     file://${MACHINE}.dts \
+    file://0001-log2-give-up-on-gcc-constant-optimizations.patch \
+    file://0002-uaccess-dont-mark-register-as-const.patch \
+    file://0003-makefile-disable-warnings.patch \
 "
 
 S = "${WORKDIR}/common"
