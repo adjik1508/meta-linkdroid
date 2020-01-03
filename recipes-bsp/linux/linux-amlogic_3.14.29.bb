@@ -31,7 +31,6 @@ DTS = "${@ d.getVar('KERNEL_DEVICETREE').replace('.dtb','.dts') }"
 SRC_URI = "https://github.com/OpenVisionE2/linux-amlogic-coreelec/archive/amlogic-3.14-nougat.tar.gz \
   file://defconfig \
   file://${DTS} \
-  file://0001-log2-give-up-on-gcc-constant-optimizations.patch \
   file://0002-uaccess-dont-mark-register-as-const.patch \
   file://0003-makefile-disable-warnings.patch \
 "
