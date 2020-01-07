@@ -40,10 +40,10 @@ SRC_URI[sha256sum] = "919efa44b576612056eec138738ef142dad2adb7ee3a248b37b09663c6
 
 do_configure_prepend(){
     sed -i "s/@DISTRONAME@/${MACHINE}/" "${WORKDIR}/defconfig"
+    install -m 0644 ${WORKDIR}/${DTS} ${S}/arch/arm64/boot/dts/amlogic/
 }
 
 do_compile_append() {
-    install -m 0644 ${WORKDIR}/${DTS} ${S}/arch/arm64/boot/dts/amlogic/
     if test -n "${KERNEL_DEVICETREE}"; then
     	for DTB in ${KERNEL_DEVICETREE}; do
     		if echo ${DTB} | grep -q '/dts/'; then
