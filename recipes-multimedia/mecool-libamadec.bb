@@ -19,7 +19,6 @@ DEPENDS = "mecool-libamavutils alsa-lib rtmpdump"
 RDEPENDS_${PN} = "ffmpeg"
 
 ### for DTS encoder: don't check for stripped & text relocations
-INSANE_SKIP_${PN} = "already-stripped textrel"
 
 inherit lib_package pkgconfig
 

@@ -12,7 +12,6 @@ inherit kernel machine_kernel_pr
 DEPENDS = "xz-native bc-native u-boot-mkimage-native virtual/${TARGET_PREFIX}gcc"
 
 # Avoid issues with Amlogic kernel binary components
-INSANE_SKIP_${PN} += "already-stripped"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_STRIP = "1"
 LINUX_VERSION ?= "3.14.29"
