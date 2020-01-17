@@ -44,7 +44,6 @@ do_compile() {
 do_package_qa() {
 }
 
-INSANE_SKIP_${PN} = "already-stripped dev-so ldflags dev-deps textrel"
 
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
